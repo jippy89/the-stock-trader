@@ -24,6 +24,9 @@
 <style>
 body {
   margin: 0;
+  /*background-color: darkblue;*/
+  background: rgb(2,0,36);
+  background: linear-gradient(to-bottom,90deg, rgba(2,0,36,1) 0%, rgba(39,15,116,1) 63%, rgba(0,212,255,1) 100%);
 }
 </style>
 
