@@ -1,10 +1,14 @@
 <template>
-  <div id="app">
-    <Header></Header>
-    <transition name="fade" mode="out-in">
-      <router-view></router-view>
-    </transition>
-  </div>
+  <el-container id="app">
+    <el-header>
+      <Header></Header>
+    </el-header>
+    <el-main>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -37,7 +41,7 @@ body {
 }
 
 .fade-enter-to {
-  transition: opacity 1s;
+  transition: opacity .3s;
   opacity: 1;
 }
 
