@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header></Header>
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -19,7 +21,9 @@
 body {
   margin: 0;
 }
+</style>
 
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,4 +31,21 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-to {
+  transition: opacity 1s;
+  opacity: 1;
+}
+
+
+
+.fade-leave-to {
+  transition: opacity .3s;
+  opacity: 0;
+}
+  
 </style>
