@@ -32,14 +32,11 @@
 		<el-col :span="3">
 			<el-dropdown>
 				<el-button type="primary">
-				Dropdown List<i class="el-icon-arrow-down el-icon--right"></i>
+				Progress<i class="el-icon-arrow-down el-icon--right"></i>
 				</el-button>
 				<el-dropdown-menu slot="dropdown">
-					<el-dropdown-item>Action 1</el-dropdown-item>
-					<el-dropdown-item>Action 2</el-dropdown-item>
-					<el-dropdown-item>Action 3</el-dropdown-item>
-					<el-dropdown-item>Action 4</el-dropdown-item>
-					<el-dropdown-item>Action 5</el-dropdown-item>
+					<el-dropdown-item>Save Progress</el-dropdown-item>
+					<el-dropdown-item>Load Progress</el-dropdown-item>
 				</el-dropdown-menu>
 			</el-dropdown>
 		</el-col>
@@ -47,8 +44,6 @@
 </template>
 
 <script>
-	// import { Container, NavMenu } from 'element-ui'
-
 	export default {
 		data() {
 			return {
