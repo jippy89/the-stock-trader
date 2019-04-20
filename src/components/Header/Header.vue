@@ -24,7 +24,10 @@
 				<el-menu-item index="/stocks">Stocks</el-menu-item>
 			</el-menu>
 		</el-col>
-		<el-col :offset="9" :span="2">
+		<!-- <el-col :offset="7" :span="2">
+			<small>Current Money {{ money }}</small>
+		</el-col> -->
+		<el-col :span="2">
 			<el-button type="warning">
 				End Day
 			</el-button>
