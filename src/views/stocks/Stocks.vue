@@ -9,7 +9,7 @@
 
 <script>
 	import Stock from './Stock.vue'
-	import { mapGetters, mapActions } from 'vuex'
+	import { mapGetters } from 'vuex'
 
 	export default {
 		components: {
@@ -19,14 +19,6 @@
 			...mapGetters([
 				"stocks"
 			])
-		},
-		methods: {
-			...mapActions([
-				"initStocks"
-			])
-		},
-		created(){
-			this.initStocks()
 		}
 	}
 </script>
