@@ -16,21 +16,21 @@
 				mode="horizontal"
 				:router="true"
 				:default-active="$route.path"
-				background-color="#545c64"
+				background-color="rgb(21,13,72)"
 				text-color="#fff"
 				active-text-color="lightgreen">
 				<el-menu-item index="/" class="home"></el-menu-item>
-				<el-menu-item index="/portfolio" :class="{ 'is-active': $route.path === activeIndex ? false : true }">Portfolio</el-menu-item>
-				<el-menu-item index="/stocks" :class="{ 'is-active': $route.path === activeIndex ? false : true }">Stocks</el-menu-item>
+				<el-menu-item index="/portfolio">Portfolio</el-menu-item>
+				<el-menu-item index="/stocks">Stocks</el-menu-item>
 			</el-menu>
 		</el-col>
 		<el-col :offset="9" :span="2">
-			<el-button type="warning" plain>
+			<el-button type="warning">
 				End Day
 			</el-button>
 		</el-col>
 		<el-col :span="3">
-			<el-dropdown>
+			<el-dropdown :show-timeout="0" :hide-timeout="0">
 				<el-button type="primary">
 				Progress<i class="el-icon-arrow-down el-icon--right"></i>
 				</el-button>
@@ -74,7 +74,7 @@
 
 	#navbar {
 		color: #fff;
-		background-color: #545c64;
+		background-color: rgb(21,13,72);
 		/*float: right!important;*/
 		margin-top: auto;
 		margin-bottom: auto;
@@ -94,13 +94,17 @@
 		border-bottom: none!important;
 	}
 	
+	.is-active {
+		background-color: rgb(34,21,108)!important;
+	}
 
 	.el-menu-item {
 		transition: all .3s !important;
 	}
 
 	.el-menu-item:hover {
-		font-weight: 600;
+		/*font-weight: 600;*/
 		color: lightgreen!important;
+		background-color: rgb(34,21,89)!important;
 	}
 </style>
