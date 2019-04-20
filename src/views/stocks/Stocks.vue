@@ -29,7 +29,7 @@
 
 <style scoped>
 	.stock-container {
-		margin-left: 5em;
-		margin-right: 5em;
+		margin-left: 8em;
+		margin-right: 8em;
 	}
 </style>
