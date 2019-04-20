@@ -8,13 +8,15 @@
 			</el-row>
 			<el-row type="flex" justify="space-around" align="middle">
 				<el-input-number v-model="quantity" @change="handleChange" :min="1" :max="10"></el-input-number>
-				<el-button type="success" @click="buyStock" :disabled="quantity <= 0 || !Number.isInteger(quantity)">Buy</el-button>
+				<el-button type="success" @click="buyStock" :disabled="money < ( quantity * stock.price )">Buy</el-button>
 			</el-row>
 		</el-card>
 	</el-col>
 </template>
 
 <script>
+	import { mapGetters, mapMutations } from 'vuex'
+
 	export default {
 		props: {
 			stock: {
@@ -22,12 +24,20 @@
 				required: true
 			}
 		},
+		computed: {
+			...mapGetters([
+				"money"
+			])
+		},
 		data() {
 			return {
 				quantity: 1
 			}
 		},
 		methods: {
+			...mapMutations([
+				"subtractMoney"
+			]),
 			handleChange(value) {
 				// console.log(value)
 			},
@@ -37,6 +47,7 @@
 					stockPrice: this.stock.price,
 					quantity: this.quantity
 				}
+				this.subtractMoney({ amount: this.stock.price * this.quantity })
 				console.log(order)
 				this.quantity = 1
 			}
