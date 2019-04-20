@@ -8,7 +8,7 @@
 			</el-row>
 			<el-row type="flex" justify="space-around" align="middle">
 				<el-input-number v-model="quantity" @change="handleChange" :min="1" :max="10"></el-input-number>
-				<el-button type="success" @click="buyStock">Buy</el-button>
+				<el-button type="success" @click="buyStock" :disabled="quantity <= 0 || !Number.isInteger(quantity)">Buy</el-button>
 			</el-row>
 		</el-card>
 	</el-col>
@@ -29,7 +29,7 @@
 		},
 		methods: {
 			handleChange(value) {
-				console.log(value)
+				// console.log(value)
 			},
 			buyStock(){
 				const order = {
@@ -38,6 +38,7 @@
 					quantity: this.quantity
 				}
 				console.log(order)
+				this.quantity = 1
 			}
 		}
 	}
