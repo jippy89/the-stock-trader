@@ -43,23 +43,6 @@
 	</el-row>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				activeIndex: null
-			}
-		},
-		watch: {
-			$route (to, from) {
-				this.activeIndex = to.path === '/' ? undefined : to.path;
-				console.log(to)
-				console.log(this.activeIndex)
-			}
-		}
-	}
-</script>
-
 <style scoped>
 	#brand {
 		transition: color .5s;
