@@ -24,10 +24,10 @@
 				<el-menu-item index="/stocks">Stocks</el-menu-item>
 			</el-menu>
 		</el-col>
-		<!-- <el-col :offset="7" :span="2">
-			<small>Current Money {{ money }}</small>
-		</el-col> -->
-		<el-col :offset="9" :span="2">
+		<el-col :offset="7" :span="2" class="funds">
+			<small>Current Funds <strong>{{ funds }}</strong></small>
+		</el-col>
+		<el-col :span="2">
 			<el-button type="warning">
 				End Day
 			</el-button>
@@ -45,6 +45,14 @@
 		</el-col>
 	</el-row>
 </template>
+
+<script>
+	export default {
+		computed: {
+			funds() { return this.$store.getters["funds"] }
+		}
+	}
+</script>
 
 <style scoped>
 	#brand {
@@ -84,7 +92,7 @@
 		background-color: rgb(34,21,108)!important;
 	}
 
-	.el-menu-item {
+	.el-menu-item, .funds {
 		transition: all .3s !important;
 	}
 
@@ -92,5 +100,9 @@
 		/*font-weight: 600;*/
 		color: lightgreen!important;
 		background-color: rgb(34,21,89)!important;
+	}
+
+	.funds:hover {
+		color: lightgreen;
 	}
 </style>
