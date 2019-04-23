@@ -28,7 +28,7 @@
 			<small>Current Funds <strong>{{ funds | currency }}</strong></small>
 		</el-col>
 		<el-col :span="2">
-			<el-button type="warning">
+			<el-button type="warning" @click="endDay">
 				End Day
 			</el-button>
 		</el-col>
@@ -47,12 +47,21 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
 	import filters from '@/mixins/filters'
 
 	export default {
 		mixins: [filters],
 		computed: {
 			funds() { return this.$store.getters["funds"] }
+		},
+		methods: {
+			...mapActions([
+				"randomizeStocks"
+			]),
+			endDay(){
+				this.randomizeStocks()
+			}
 		}
 	}
 </script>
