@@ -1,7 +1,7 @@
 export default {
 	filters: {
 		currency: function(value) {
-			return `$${value}`
+			return `$${ value.toLocaleString() }`
 		}
 	}
 }
