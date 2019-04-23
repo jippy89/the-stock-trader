@@ -7,7 +7,7 @@
 				<!-- <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button> -->
 			</el-row>
 			<el-row type="flex" justify="space-around" align="middle">
-				<el-input-number v-model="quantity" @change="handleChange" :min="1" :max="10"></el-input-number>
+				<el-input-number v-model="quantity" @change="handleChange" :min="1"></el-input-number>
 				<el-button 
 					:type="insufficientFunds ? 'warning':'success'" 
 					@click="buyStock" 
