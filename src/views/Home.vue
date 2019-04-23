@@ -4,15 +4,18 @@
   	<h6>You may Save & Load your data</h6>	
   	<h6>Click on 'End Day' to begin a New Day!</h6>
   	<hr>
-	<p>Your current funds: {{ funds }}</p>
+	<p>Your current funds: {{ funds | currency }}</p>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import { mapGetters } from 'vuex'
+import filters from '@/mixins/filters'
+
 
 export default {
+  mixins: [filters],
   name: 'home',
   computed: {
   	...mapGetters([

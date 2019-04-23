@@ -25,7 +25,7 @@
 			</el-menu>
 		</el-col>
 		<el-col :offset="7" :span="2" class="funds">
-			<small>Current Funds <strong>{{ funds }}</strong></small>
+			<small>Current Funds <strong>{{ funds | currency }}</strong></small>
 		</el-col>
 		<el-col :span="2">
 			<el-button type="warning">
@@ -47,7 +47,10 @@
 </template>
 
 <script>
+	import filters from '@/mixins/filters'
+
 	export default {
+		mixins: [filters],
 		computed: {
 			funds() { return this.$store.getters["funds"] }
 		}

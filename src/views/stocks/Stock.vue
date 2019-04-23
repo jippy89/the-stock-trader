@@ -3,7 +3,7 @@
 		<el-card shadow="hover">
 			<el-row slot="header" type="flex" justify="space-between" align="middle">
 				<span>{{ stock.name }}</span>
-				<small>Current Price: {{ stock.price }}</small>
+				<small>Current Price: {{ stock.price | currency }}</small>
 				<!-- <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button> -->
 			</el-row>
 			<el-row type="flex" justify="space-around" align="middle">
@@ -21,8 +21,10 @@
 
 <script>
 	import { mapGetters, mapMutations } from 'vuex'
+	import filters from '@/mixins/filters'
 
 	export default {
+		mixins: [filters],
 		props: {
 			stock: {
 				type: Object,
