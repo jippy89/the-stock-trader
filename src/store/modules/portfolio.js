@@ -38,6 +38,10 @@ const mutations = {
 			state.stocks.splice(state.stocks.indexOf(record), 1)
 		}
 		state.funds += stockPrice * quantity
+	},
+	'SET_PORTFOLIO' (state, { stockPortfolio, funds }) {
+		state.funds = funds;
+		state.stocks = stockPortfolio ? stockPortfolio : []
 	}
 }
 
