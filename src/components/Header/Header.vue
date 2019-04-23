@@ -60,9 +60,10 @@
 			funds() { return this.$store.getters["funds"] }
 		},
 		methods: {
-			...mapActions([
-				"randomizeStocks"
-			]),
+			...mapActions({
+				randomizeStocks: "randomizeStocks",
+				fetchData: 'loadData'
+			}),
 			endDay(){
 				this.randomizeStocks()
 			},
@@ -75,7 +76,7 @@
 				axios.put('data.json',data)
 			},
 			loadData(){
-				console.log("Loading data..")
+				this.fetchData()
 			}
 		}
 	}
