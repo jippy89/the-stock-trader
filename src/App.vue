@@ -13,10 +13,18 @@
 
 <script>
   import Header from '@/components/Header/Header.vue'
-
+  import { mapActions } from 'vuex'
   export default {
     components: {
       Header
+    },
+    methods: {
+      ...mapActions([
+        'initStocks'
+      ])
+    },
+    created(){
+      this.initStocks()
     }
   }
 </script>

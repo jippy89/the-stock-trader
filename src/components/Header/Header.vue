@@ -24,8 +24,11 @@
 				<el-menu-item index="/stocks">Stocks</el-menu-item>
 			</el-menu>
 		</el-col>
-		<el-col :offset="9" :span="2">
-			<el-button type="warning">
+		<el-col :offset="7" :span="2" class="funds">
+			<small>Current Funds <strong>{{ funds | currency }}</strong></small>
+		</el-col>
+		<el-col :span="2">
+			<el-button type="warning" @click="endDay">
 				End Day
 			</el-button>
 		</el-col>
@@ -44,17 +47,20 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
+	import filters from '@/mixins/filters'
+
 	export default {
-		data() {
-			return {
-				activeIndex: null
-			}
+		mixins: [filters],
+		computed: {
+			funds() { return this.$store.getters["funds"] }
 		},
-		watch: {
-			$route (to, from) {
-				this.activeIndex = to.path === '/' ? undefined : to.path;
-				console.log(to)
-				console.log(this.activeIndex)
+		methods: {
+			...mapActions([
+				"randomizeStocks"
+			]),
+			endDay(){
+				this.randomizeStocks()
 			}
 		}
 	}
@@ -98,7 +104,7 @@
 		background-color: rgb(34,21,108)!important;
 	}
 
-	.el-menu-item {
+	.el-menu-item, .funds {
 		transition: all .3s !important;
 	}
 
@@ -106,5 +112,9 @@
 		/*font-weight: 600;*/
 		color: lightgreen!important;
 		background-color: rgb(34,21,89)!important;
+	}
+
+	.funds:hover {
+		color: lightgreen;
 	}
 </style>
