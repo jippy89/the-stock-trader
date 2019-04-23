@@ -38,8 +38,12 @@
 				Progress<i class="el-icon-arrow-down el-icon--right"></i>
 				</el-button>
 				<el-dropdown-menu slot="dropdown">
-					<el-dropdown-item>Save Progress</el-dropdown-item>
-					<el-dropdown-item>Load Progress</el-dropdown-item>
+					<el-dropdown-item>
+						<span @click="saveData">Save Progress</span>
+					</el-dropdown-item>
+					<el-dropdown-item>
+						<span @click="loadData">Load Progress</span>
+					</el-dropdown-item>
 				</el-dropdown-menu>
 			</el-dropdown>
 		</el-col>
@@ -61,6 +65,17 @@
 			]),
 			endDay(){
 				this.randomizeStocks()
+			},
+			saveData(){
+				const data = {
+					funds: this.$store.getters.funds, 
+					stockPortfolio: this.$store.getters.stockPortfolio, 
+					stocks: this.$store.getters.stocks
+				}
+				axios.put('data.json',data)
+			},
+			loadData(){
+				console.log("Loading data..")
 			}
 		}
 	}
