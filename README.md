@@ -1,5 +1,7 @@
 # the-stock-trader
 
+Check it out live [here](https://jippy89.github.io/the-stock-trader/#/)
+
 ## Project setup
 ```
 npm install
